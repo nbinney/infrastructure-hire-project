@@ -6,7 +6,7 @@ Parameters:
   Name:
     Description: Name of the project
     Type: String
-    Default: ops-hire-project
+    Default: nb2-ops-hire-project
 
   Environment:
     Description: Environment tag (i.e. 'dev'). All resources will be tagged with this value
@@ -173,3 +173,22 @@ Resources:
     Properties: 
       SubnetId: !Ref PublicSubnet1
       NetworkAclId: !Ref NetworkAcl
+
+# NB Start for ECS changes
+
+# ECS Resources
+  ECSCluster:
+    Type: AWS::ECS::Cluster
+
+  # A security group for the containers we will run in Fargate.
+  # Three rules, allowing network traffic from a public facing load
+  # balancer, a private internal load balancer, and from other members
+  # of the security group.
+  #
+  # Remove any of the following ingress rules that are not needed.
+  FargateContainerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Access to the Fargate containers
+      VpcId: !Ref 'VPC'
+
