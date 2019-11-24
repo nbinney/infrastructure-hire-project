@@ -1,0 +1,6 @@
+
+https://github.com/nathanpeck/aws-cloudformation-fargate
+
+https://github.com/awslabs/aws-cloudformation-templates
+
+https://github.com/1Strategy/fargate-cloudformation-example
