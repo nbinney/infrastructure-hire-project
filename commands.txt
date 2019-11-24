@@ -1,0 +1,6 @@
+
+#  Deploy Infrastructure Stack
+aws cloudformation deploy --template-file infrastructure/infrastructure.yml --stack-name nb-ops-hire-project --capabilities CAPABILITY_NAMED_IAM --tags Name=nb-ops-hire-project Environment=dev
+
+#  Delpoy Fargate stack
+aws cloudformation deploy --template-file infrastructure/fargate.yaml --stack-name nb-ops-hire-project-fg --capabilities CAPABILITY_NAMED_IAM --tags Name=nb-ops-hire-project-fg Environment=dev
